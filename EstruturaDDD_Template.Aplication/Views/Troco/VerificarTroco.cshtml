@@ -1,0 +1,26 @@
+﻿@using TrocoBrq.Aplication.ViewModels;
+@model RetornoViewModel
+
+@{
+    ViewData["Title"] = "VerificarTroco";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>VerificarTroco</h2>
+
+<p>Retorno:</p>
+@if (Model.Status)
+{
+    @foreach (var item in Model.MoedasRetorno)
+    {
+        <p>Valor: @item.Valor</p>
+        <p>Quantidade: @item.Quantidade</p>
+        <br />
+    }
+}
+else
+{
+    <p>@Model.Mensagem</p>
+}
+
+<a href="/Troco/Index">Voltar</a>

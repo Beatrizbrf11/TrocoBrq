@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Default\**" />
+    <Content Remove="Views\Default\**" />
+    <EmbeddedResource Remove="Views\Default\**" />
+    <None Remove="Views\Default\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EntruturaDDD_Template.Cross.AutoMapper\TrocoBrq.Cross.AutoMapper.csproj" />
+    <ProjectReference Include="..\EntruturaDDD_Template\TrocoBrq.Cross.DTO.csproj" />
+    <ProjectReference Include="..\EstruturaDDD_Template\EstruturaDDD_Template.Domain\TrocoBrq.Domain.csproj" />
+    <ProjectReference Include="..\EstruturaDDD_Template\EstruturaDDD_Template.Services\TrocoBrq.Services.csproj" />
+  </ItemGroup>
+
+</Project>

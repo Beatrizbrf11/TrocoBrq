@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EstruturaDDD_Template.Data\TrocoBrq.Data.csproj" />
+    <ProjectReference Include="..\EstruturaDDD_Template.Domain\TrocoBrq.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
