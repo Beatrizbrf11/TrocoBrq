@@ -36,6 +36,7 @@ namespace TrocoBrq.Domain.Service
                 #region Validacao 
 
                 if (valorEntregue < valorDivida) { return new RetornoDTO { Status = false, Mensagem = "Valor recebido insuficiente" }; }
+                if (valorEntregue == valorDivida) { return new RetornoDTO { Status = false, Mensagem = "Não há troco" }; }
 
                 #endregion
 
@@ -59,6 +60,10 @@ namespace TrocoBrq.Domain.Service
                     if (valorTroco != 0 && moedas.Count <= 0) { return new RetornoDTO { Status = false, Mensagem = "Não há notas disponíveis para realizar este saque." }; }
                 }
 
+                //moedasRetorno.ForEach(moeda => _uow.MoedaRepository.Update(moeda));
+
+                //_uow.Commit();
+
                 return new RetornoDTO { Status = true, MoedasRetorno = moedasRetorno.Distinct().ToList() };
 
             }
@@ -66,6 +71,15 @@ namespace TrocoBrq.Domain.Service
             {
                 return new RetornoDTO { Status = false, Mensagem = "Erro inesperado" };
             }
+        }
+
+        private void UpdateMoeda(MoedaDTO moeda)
+        {
+            var ctx = _uow.MoedaRepository.GetById(moeda.Id);
+
+            ctx.Quantidade = moeda.Quantidade;
+
+            _uow.MoedaRepository.Update(ctx);
         }
     }
 }

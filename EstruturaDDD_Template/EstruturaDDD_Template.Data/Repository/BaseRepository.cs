@@ -51,7 +51,7 @@ namespace TrocoBrq.Data.Repository
         {
             var mappedEntity = Mapper.Map<TEntity>(entity);
             Db.Entry(mappedEntity).State = EntityState.Modified;
-            Db.SaveChanges();
+            //Db.SaveChanges();
         }
         public void Remove(int id)
         {
